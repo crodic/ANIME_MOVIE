@@ -6,8 +6,12 @@ import SearchInput from '../SearchInput.vue'
 import ToggleMode from '../ToggleMode.vue'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
+import Button from '../ui/button/Button.vue'
+import { BookmarkIcon } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
 const store = useGlobalStore()
+const router = useRouter()
 
 const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
 </script>
@@ -21,6 +25,9 @@ const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
     <SearchInput />
     <div class="flex gap-2 items-center">
       <MobileSearch />
+      <Button size="icon" @click="router.push({ name: 'bookmark' })">
+        <BookmarkIcon />
+      </Button>
       <CategoryDropdown />
       <ToggleMode />
     </div>

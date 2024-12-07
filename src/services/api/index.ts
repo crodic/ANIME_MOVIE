@@ -51,3 +51,8 @@ export const getSearchAnimeList = async (params: FilterDataType) => {
   }
   return res.data.data
 }
+
+export const getAnimeByBookmarks = async (bookmark: string) => {
+  const res = await http.get<AxiosResponse<MovieDetailData>>(`/v1/api/phim/${bookmark}`)
+  return res.data.data
+}

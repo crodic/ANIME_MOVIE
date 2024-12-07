@@ -27,6 +27,11 @@ export const routes: readonly RouteRecordRaw[] = [
         component: () => import('@/views/WatchMovieView.vue'),
       },
       {
+        path: 'theo-doi',
+        name: 'bookmark',
+        component: () => import('@/views/BookmarkView.vue'),
+      },
+      {
         path: ':pathMatch(.*)*',
         name: 'not-found',
         component: () => import('@/views/NotFoundView.vue'),

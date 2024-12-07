@@ -38,13 +38,18 @@ watch(
 </script>
 
 <template>
-  <section class="md:px-0 px-4">
+  <section v-if="!isPending && !data?.items.length">
+    <div class="min-h-[400px]">
+      <p class="text-red-500">Không tìm thấy anime.</p>
+    </div>
+  </section>
+  <section v-else class="md:px-0 px-4">
     <Card class="rounded-none">
       <CardHeader class="p-2 px-4">
         <h4 class="text-base font-semibold">Danh sách Anime</h4>
       </CardHeader>
     </Card>
-    <div v-if="isPending" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-2">
+    <div v-if="isPending" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-4">
       <div v-for="i in 10" :key="i">
         <Skeleton class="h-[250px]" />
       </div>
@@ -54,7 +59,7 @@ watch(
         <AlertDescription>{{ error.message }}</AlertDescription>
       </Alert>
     </div>
-    <div v-else class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-2">
+    <div v-else class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-4">
       <p
         v-if="!data?.items.length"
         class="lg:col-span-5 md:col-span-3 col-span-2 lg:row-span-5 md:row-span-3 row-span-2 flex justify-center items-center text-center text-destructive font-semibold py-4 h-64"

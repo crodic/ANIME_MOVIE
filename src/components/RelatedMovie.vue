@@ -32,7 +32,7 @@ const { data } = useQuery({
       </CardHeader>
     </Card>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-2">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-2">
       <div v-for="movie in data?.items.slice(0, 10)" :key="movie._id">
         <MovieCard :data="movie" />
       </div>

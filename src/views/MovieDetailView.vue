@@ -10,9 +10,14 @@ import { computed, onMounted, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import { Skeleton } from '@/components/ui/skeleton'
+import { BookmarkIcon } from 'lucide-vue-next'
+import { useMovieBookmark } from '@/stores/movieBookmark'
+import { cn } from '@/lib/utils'
 
 const route = useRoute()
 const router = useRouter()
+
+const bookmarkStore = useMovieBookmark()
 
 const slug = computed(() => route.params.slug || '')
 const imgUrl = import.meta.env.VITE_OPHIM_IMG
@@ -46,14 +51,25 @@ watchEffect(() => {
 
   <Card class="rounded-none" v-if="data">
     <CardHeader class="p-2 px-4">
-      <h1 class="text-base font-bold text-center">{{ data?.item.name }}</h1>
+      <h1 class="text-base font-bold text-center">
+        <BookmarkIcon
+          :class="
+            cn(
+              `inline-block cursor-pointer`,
+              bookmarkStore.bookmarks.includes(data.item.slug) && 'fill-blue-500',
+            )
+          "
+          @click="bookmarkStore.addBookmark(data.item.slug)"
+        />
+        {{ data?.item.name }}
+      </h1>
     </CardHeader>
   </Card>
 
   <Card class="rounded-none relative" v-if="data">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <CardContent
-      class="pt-6 bg-center bg-cover flex gap-4"
+      class="pt-6 bg-center bg-cover flex gap-4 md:flex-row flex-col items-center justify-center"
       :style="{ backgroundImage: `url(${imgUrl}/${data?.item.poster_url})` }"
     >
       <LazyImage
@@ -62,7 +78,9 @@ watchEffect(() => {
         class="w-[200px] aspect-auto border-4 relative z-10"
       />
 
-      <div class="relative z-10 space-y-4 drop-shadow-lg text-white md:text-base text-sm flex-1">
+      <div
+        class="relative z-10 space-y-4 drop-shadow-lg text-white md:text-base text-sm flex-1 w-full"
+      >
         <div class="flex gap-2 items-center">
           <span class="font-semibold">Thể loại: </span>
           <div class="flex gap-2 flex-wrap">

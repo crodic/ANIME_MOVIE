@@ -39,7 +39,7 @@ const handleClickWatch = ({ slug, episode }: { slug: string; episode: string }) 
       </CardTitle>
     </CardHeader>
     <CardContent class="max-h-[500px] overflow-y-auto">
-      <div class="grid grid-cols-12 gap-4">
+      <div class="grid grid-cols-8 md:grid-cols-12 gap-4">
         <Button
           v-for="(episode, index) in data?.item.episodes[0].server_data"
           :key="episode.slug"
