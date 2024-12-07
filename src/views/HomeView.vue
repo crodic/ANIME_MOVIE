@@ -26,15 +26,33 @@ useHead({
 
 <template>
   <div class="flex flex-col gap-4">
-    <Alert variant="destructive" class="bg-destructive text-destructive-foreground">
-      <AlertCircle class="w-4 h-4 text-destructive-foreground" color="white" />
-      <AlertDescription>
-        <p class="text-sm md:text-base">
-          Nghiêm cấm bàn về các vấn đề chính trị của trong và ngoài nước (dù cho tốt hay xấu), sẽ bị
-          ban acc vĩnh viễn.
-        </p>
-      </AlertDescription>
-    </Alert>
+    <section aria-label="Alerts" class="space-y-2 px-4 md:px-0">
+      <Alert variant="destructive" class="bg-destructive text-destructive-foreground">
+        <AlertCircle class="w-4 h-4 text-destructive-foreground" color="white" />
+        <AlertDescription>
+          <p class="text-sm md:text-base">
+            Nghiêm cấm bàn về các vấn đề chính trị của trong và ngoài nước (dù cho tốt hay xấu), sẽ
+            bị ban acc vĩnh viễn.
+          </p>
+        </AlertDescription>
+      </Alert>
+      <Alert variant="destructive" class="bg-destructive text-destructive-foreground">
+        <AlertCircle class="w-4 h-4 text-destructive-foreground" color="white" />
+        <AlertDescription>
+          <p class="text-sm md:text-base">
+            Nếu website không tải được hình ảnh, vui lòng truy cập
+            <a
+              href="https://img.ophim1.com/uploads/movies/fairy-tail-nhiem-vu-100-nam-thumb.jpg"
+              target="_blank"
+              class="text-blue-500 hover:text-blue-700 hover:underline"
+            >
+              vào đây</a
+            >
+            -> chọn "Nâng cao" -> "Tiếp tục truy cập"
+          </p>
+        </AlertDescription>
+      </Alert>
+    </section>
     <NewMovieUpdate />
     <AnimeList />
   </div>
