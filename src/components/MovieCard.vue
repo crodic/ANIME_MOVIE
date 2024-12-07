@@ -28,6 +28,7 @@ const handleClick = ({ slug }: { slug: string }) => {
       />
       <div
         class="absolute bottom-2 right-2 bg-destructive text-destructive-foreground text-sm px-2"
+        v-if="data.tmdb"
       >
         {{ data.tmdb.vote_average.toFixed(1) }}
       </div>
