@@ -3,11 +3,9 @@ import type { MovieDetailData } from '@/types'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { useRouter } from 'vue-router'
-import { computed, onMounted, toRaw } from 'vue'
 import { useMovieHistory } from '@/stores/movieHistory'
-import { cn } from '@/lib/utils'
 
-const props = defineProps<{ data: MovieDetailData; fullSlugEpisode?: string }>()
+defineProps<{ data: MovieDetailData; fullSlugEpisode?: string }>()
 const storeHistory = useMovieHistory()
 
 const router = useRouter()

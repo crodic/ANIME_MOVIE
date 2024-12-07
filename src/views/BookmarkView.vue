@@ -3,10 +3,7 @@ import MovieCard from '@/components/MovieCard.vue'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { getAnimeByBookmarks } from '@/services/api'
 import { useMovieBookmark } from '@/stores/movieBookmark'
-import type { MovieData } from '@/types'
 import { useQueries } from '@tanstack/vue-query'
-import { defineStore } from 'pinia'
-import { watch, watchEffect } from 'vue'
 
 const bookmarkStore = useMovieBookmark()
 

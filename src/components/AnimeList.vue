@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/vue-query'
 import MovieCard from './MovieCard.vue'
 import { Card, CardHeader } from './ui/card'
-import { getAnimeList, getSearchAnimeList } from '@/services/api'
+import { getSearchAnimeList } from '@/services/api'
 import Paginate from './Paginate.vue'
 import { useRoute } from 'vue-router'
 import { computed, watch } from 'vue'

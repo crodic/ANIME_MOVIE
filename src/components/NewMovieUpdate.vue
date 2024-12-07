@@ -5,7 +5,7 @@ import { Card } from './ui/card'
 import CardHeader from './ui/card/CardHeader.vue'
 import { cn } from '@/lib/utils'
 
-const { data, error } = useQuery({
+const { data } = useQuery({
   queryKey: ['movies', { page: '1' }],
   queryFn: () => getAnimeList({ page: '1' }),
 })

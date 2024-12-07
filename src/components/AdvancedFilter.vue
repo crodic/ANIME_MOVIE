@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRaw, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 import Button from './ui/button/Button.vue'
 import { useQuery } from '@tanstack/vue-query'
 import { getCategories } from '@/services/api'

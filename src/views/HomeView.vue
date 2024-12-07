@@ -2,7 +2,6 @@
 import AnimeList from '@/components/AnimeList.vue'
 import NewMovieUpdate from '@/components/NewMovieUpdate.vue'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle } from 'lucide-vue-next'
 import { useHead, useSeoMeta } from '@unhead/vue'
 
 useHead({
@@ -22,28 +21,14 @@ useSeoMeta({
 <template>
   <div class="flex flex-col gap-4">
     <section aria-label="Alerts" class="space-y-2 px-4 md:px-0">
-      <Alert variant="destructive" class="bg-destructive text-destructive-foreground">
-        <AlertCircle class="w-4 h-4 text-destructive-foreground" color="white" />
+      <Alert
+        variant="destructive"
+        class="bg-destructive text-destructive-foreground py-2 flex items-center"
+      >
         <AlertDescription>
-          <p class="text-sm md:text-base">
+          <p class="text-sm md:text-base drop-shadow-md">
             Nghiêm cấm bàn về các vấn đề chính trị của trong và ngoài nước (dù cho tốt hay xấu), sẽ
             bị ban acc vĩnh viễn.
-          </p>
-        </AlertDescription>
-      </Alert>
-      <Alert variant="destructive" class="bg-destructive text-destructive-foreground">
-        <AlertCircle class="w-4 h-4 text-destructive-foreground" color="white" />
-        <AlertDescription>
-          <p class="text-sm md:text-base">
-            Nếu website không tải được hình ảnh, vui lòng truy cập
-            <a
-              href="https://img.ophim1.com/uploads/movies/fairy-tail-nhiem-vu-100-nam-thumb.jpg"
-              target="_blank"
-              class="text-blue-500 hover:text-blue-700 hover:underline"
-            >
-              vào đây</a
-            >
-            -> chọn "Nâng cao" -> "Tiếp tục truy cập"
           </p>
         </AlertDescription>
       </Alert>
