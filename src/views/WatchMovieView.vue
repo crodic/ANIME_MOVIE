@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Episodes from '@/components/Episodes.vue'
+import MovieControl from '@/components/MovieControl.vue'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -106,6 +107,13 @@ watchEffect(() => {
     allowfullscreen
     class="w-full aspect-video px-4 md:px-0"
   ></iframe>
+
+  <MovieControl
+    :episodes="
+      data?.item.episodes.find((item) => item.server_name === serverName)?.server_data || []
+    "
+    :current-episode="fullEpisodeSlug"
+  />
 
   <section>
     <Episodes v-if="data" :data="data" :full-slug-episode="fullEpisodeSlug" />

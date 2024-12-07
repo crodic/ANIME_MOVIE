@@ -14,11 +14,6 @@ const router = useRouter()
 
 const extraSlug = ['phan', 'tap']
 
-onMounted(() => {
-  console.log('Current: ', props.fullSlugEpisode)
-  console.log(toRaw(props.data.item.episodes))
-})
-
 const handleClickWatch = ({ slug, episode }: { slug: string; episode: string }) => {
   router.push({
     name: 'watch-movie',
