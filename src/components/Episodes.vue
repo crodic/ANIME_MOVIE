@@ -29,9 +29,7 @@ const handleClickWatch = ({ slug, episode }: { slug: string; episode: string }) 
 <template>
   <Card>
     <CardHeader class="p-4">
-      <CardTitle>
-        <h6 class="text-lg">Danh Sách Tập</h6>
-      </CardTitle>
+      <CardTitle class="text-lg"> Danh Sách Tập </CardTitle>
     </CardHeader>
     <CardContent class="max-h-[500px] overflow-y-auto">
       <div class="grid grid-cols-8 md:grid-cols-12 gap-4">

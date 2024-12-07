@@ -29,9 +29,9 @@ const mode = useColorMode({})
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
-      <DropdownMenuItem @click="mode = 'light'"> Light </DropdownMenuItem>
-      <DropdownMenuItem @click="mode = 'dark'"> Dark </DropdownMenuItem>
-      <DropdownMenuItem @click="mode = 'auto'"> System </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'light'"> Sáng </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'dark'"> Tối </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'auto'"> Hệ thống </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

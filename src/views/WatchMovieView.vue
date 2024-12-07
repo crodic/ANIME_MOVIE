@@ -33,6 +33,11 @@ const { data, isError, error, isPending } = useQuery({
   queryKey: ['movie', slug],
   queryFn: () => getMovieDetail(slug.value.toString()),
   enabled: slug.value !== '',
+  refetchOnWindowFocus: false,
+  gcTime: Infinity,
+  staleTime: Infinity,
+  refetchIntervalInBackground: false,
+  suspense: true,
 })
 
 const serverName = ref('')
@@ -105,6 +110,9 @@ watchEffect(() => {
     :src="server.server_data.find((item) => item.slug === fullEpisodeSlug)?.link_embed"
     frameborder="0"
     allowfullscreen
+    name="anime-screen"
+    aria-label="anime-screen"
+    title="anime-screen"
     class="w-full aspect-video px-4 md:px-0"
   ></iframe>
 

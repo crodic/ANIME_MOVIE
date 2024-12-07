@@ -140,3 +140,11 @@ export interface DataHistory {
   slug: string
   episode_slug: string
 }
+
+export interface AnimeSearchData {
+  items: {
+    _id: string
+    name: string
+    slug: string
+  }[]
+}

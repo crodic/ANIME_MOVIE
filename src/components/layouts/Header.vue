@@ -27,6 +27,7 @@ const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
       <MobileSearch />
       <Button size="icon" @click="router.push({ name: 'bookmark' })">
         <BookmarkIcon />
+        <span class="sr-only">Đánh dấu</span>
       </Button>
       <CategoryDropdown />
       <ToggleMode />

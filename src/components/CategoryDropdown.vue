@@ -24,6 +24,7 @@ const { data } = useQuery({
     <DropdownMenuTrigger as-child>
       <Button @click="handleOpenOrClose" size="icon">
         <AlignJustify />
+        <span class="sr-only">Danh sách thể loại</span>
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" class="w-full max-w-4xl p-4">

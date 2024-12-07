@@ -36,6 +36,7 @@ const handleEnter = () => {
     <Button size="icon" @click="store.toggleMobileSearch">
       <SearchIcon v-if="!isOpen" />
       <XIcon v-else />
+      <span class="sr-only">Tìm kiếm</span>
     </Button>
   </div>
 </template>

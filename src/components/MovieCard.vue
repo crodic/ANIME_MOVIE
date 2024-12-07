@@ -24,6 +24,8 @@ const handleClick = ({ slug }: { slug: string }) => {
       <LazyImage
         :src="imgUrl + '/' + data?.thumb_url"
         :alt="data.origin_name"
+        :width="1071"
+        :height="1500"
         class="h-full object-top"
       />
       <div
