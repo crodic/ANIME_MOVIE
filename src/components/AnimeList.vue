@@ -50,7 +50,7 @@ watch(
       </CardHeader>
     </Card>
     <div v-if="isPending" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-4">
-      <div v-for="i in 10" :key="i">
+      <div v-for="i in 24" :key="i">
         <Skeleton class="h-[250px]" />
       </div>
     </div>
