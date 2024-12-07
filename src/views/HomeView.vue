@@ -7,30 +7,15 @@ import { useHead, useSeoMeta } from '@unhead/vue'
 
 useHead({
   title: 'Animazing - Trang chủ',
-  meta: [
-    { name: 'description', content: 'Website xem anime trực tuyến Animazing' },
-    { name: 'og:title', content: 'Animazing - Trang chủ' },
-    { name: 'og:url', content: 'https://anime-movie-tan.vercel.app/' },
-    {
-      name: 'og:image',
-      content:
-        'https://preview.redd.it/made-this-anime-banner-in-pixlr-v0-eni9yujjzvxa1.jpg?auto=webp&s=8b871c713fdb41aaf0c08702857ba0e8464534cf',
-    },
-    {
-      name: 'og:description',
-      content: 'Website xem anime trực tuyến Animazing',
-    },
-  ],
+  meta: [{ name: 'description', content: 'Website xem anime trực tuyến Animazing' }],
 })
 
 useSeoMeta({
   ogTitle: 'Animazing - Trang chủ',
   ogDescription: 'Website xem anime trực tuyến Animazing',
   ogUrl: 'https://anime-movie-tan.vercel.app/',
-  ogImageUrl:
-    'https://preview.redd.it/made-this-anime-banner-in-pixlr-v0-eni9yujjzvxa1.jpg?auto=webp&s=8b871c713fdb41aaf0c08702857ba0e8464534cf',
-  ogImage:
-    'https://preview.redd.it/made-this-anime-banner-in-pixlr-v0-eni9yujjzvxa1.jpg?auto=webp&s=8b871c713fdb41aaf0c08702857ba0e8464534cf',
+  ogImageUrl: 'https://images4.alphacoders.com/907/907594.png',
+  ogImage: 'https://images4.alphacoders.com/907/907594.png',
 })
 </script>
 
