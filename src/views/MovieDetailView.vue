@@ -75,6 +75,8 @@ watchEffect(() => {
       <LazyImage
         :src="imgUrl + '/' + data?.item.thumb_url || ''"
         :alt="data?.item.origin_name"
+        :width="600"
+        :height="900"
         class="w-[200px] aspect-auto border-4 relative z-10"
       />
 
