@@ -3,7 +3,7 @@ import AnimeList from '@/components/AnimeList.vue'
 import NewMovieUpdate from '@/components/NewMovieUpdate.vue'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { AlertCircle } from 'lucide-vue-next'
-import { useHead } from '@unhead/vue'
+import { useHead, useSeoMeta } from '@unhead/vue'
 
 useHead({
   title: 'Animazing - Trang chủ',
@@ -21,6 +21,16 @@ useHead({
       content: 'Website xem anime trực tuyến Animazing',
     },
   ],
+})
+
+useSeoMeta({
+  ogTitle: 'Animazing - Trang chủ',
+  ogDescription: 'Website xem anime trực tuyến Animazing',
+  ogUrl: 'https://anime-movie-tan.vercel.app/',
+  ogImageUrl:
+    'https://preview.redd.it/made-this-anime-banner-in-pixlr-v0-eni9yujjzvxa1.jpg?auto=webp&s=8b871c713fdb41aaf0c08702857ba0e8464534cf',
+  ogImage:
+    'https://preview.redd.it/made-this-anime-banner-in-pixlr-v0-eni9yujjzvxa1.jpg?auto=webp&s=8b871c713fdb41aaf0c08702857ba0e8464534cf',
 })
 </script>
 
