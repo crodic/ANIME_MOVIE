@@ -49,6 +49,7 @@ watch(
         <h4 class="text-base font-semibold">Danh sách Anime</h4>
       </CardHeader>
     </Card>
+    <!-- Skeleton List -->
     <div v-if="isPending" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-4">
       <div v-for="i in 24" :key="i">
         <Skeleton class="h-[204px] md:h-[254px]" />
@@ -70,7 +71,9 @@ watch(
         <MovieCard :data="movie" />
       </div>
     </div>
-    <div class="flex justify-center mt-4">
+    <!-- Skeleton List -->
+    <Skeleton v-if="isPending" class="h-[50px] w-full mt-4" />
+    <div class="flex justify-center mt-4" v-else>
       <Paginate :pagination="data?.params.pagination" />
     </div>
   </section>
