@@ -28,8 +28,9 @@ const handleLogout = () => {
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
-      <!-- <DropdownMenuItem>Thông tin tài khoản</DropdownMenuItem> -->
-      <DropdownMenuItem>Đổi Mật Khẩu</DropdownMenuItem>
+      <DropdownMenuItem @click="router.push({ name: 'change-password' })"
+        >Đổi Mật Khẩu</DropdownMenuItem
+      >
       <DropdownMenuItem @click="handleLogout" class="cursor-pointer">Đăng Xuất</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

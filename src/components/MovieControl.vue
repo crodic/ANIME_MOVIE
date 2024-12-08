@@ -70,10 +70,11 @@ const handleDownloadVideo = async (url: string) => {
       sessionStore.userLogout()
       router.push({ name: 'login' })
     } else {
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `${currentSlug.value.join('-')}.mp4`
-      link.click()
+      alert('Comming soon...')
+      // const link = document.createElement('a')
+      // link.href = url
+      // link.download = `${currentSlug.value.join('-')}.mp4`
+      // link.click()
     }
   } catch (error) {
     sessionStore.userLogout()
@@ -89,7 +90,7 @@ const handleDownloadVideo = async (url: string) => {
         <Button :disabled="!isHasPrev" @click="handleClickPrev" size="sm"
           ><ArrowLeft />Trước
         </Button>
-        <!-- <Button
+        <Button
           size="sm"
           :disabled="!sessionStore.isAuthenticated"
           @click="
@@ -99,7 +100,7 @@ const handleDownloadVideo = async (url: string) => {
           "
           ><DownloadIcon />
           <span class="sr-only">Tải xuống</span>
-        </Button> -->
+        </Button>
         <Button size="sm" @click="bookmarkStore.addBookmark(currentSlug.slice(0, -1).join('-'))">
           <Bookmark
             :fill="

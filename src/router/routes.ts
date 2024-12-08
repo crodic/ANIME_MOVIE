@@ -17,6 +17,14 @@ export const routes: readonly RouteRecordRaw[] = [
         component: () => import('@/views/LoginView.vue'),
       },
       {
+        path: 'doi-mat-khau',
+        name: 'change-password',
+        component: () => import('@/views/ChangePasswordView.vue'),
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
         path: 'dang-ky',
         name: 'register',
         component: () => import('@/views/RegisterView.vue'),

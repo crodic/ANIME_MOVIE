@@ -25,6 +25,11 @@ request.interceptors.response.use(
     return response
   },
   (error) => {
+    const sessionStore = useSessionStore()
+    if (error.response.status === 401) {
+      sessionStore.userLogout()
+      window.location.href = '/dang-nhap'
+    }
     return Promise.reject(error)
   },
 )

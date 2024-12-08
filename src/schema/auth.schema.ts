@@ -20,3 +20,19 @@ export const registerSchema = z
       })
     }
   })
+
+export const changePasswordSchema = z
+  .object({
+    oldPassword: z.string().min(6, 'Mật khẩu phải từ 6 ký tự trở lên.'),
+    newPassword: z.string().min(6, 'Mật khẩu phải từ 6 ký tự trở lên.'),
+    confirmPassword: z.string().min(6, 'Mật khẩu phải từ 6 ky tự trở lên.'),
+  })
+  .superRefine(({ confirmPassword, newPassword }, ctx) => {
+    if (confirmPassword !== newPassword) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['confirmPassword'],
+        message: 'Mật khẩu không trùng khớp.',
+      })
+    }
+  })

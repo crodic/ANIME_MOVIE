@@ -82,3 +82,16 @@ export const validateRequest = async () => {
   const res = await request.get<{ message: string }>('/auth/validate-request')
   return res.data
 }
+
+export const changePassword = async (
+  oldPassword: string,
+  newPassword: string,
+  confirmPassword: string,
+) => {
+  const res = await request.put<{ message: string; status: number }>('/user/change-password', {
+    oldPassword,
+    newPassword,
+    confirmPassword,
+  })
+  return res.data
+}
