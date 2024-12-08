@@ -188,3 +188,30 @@ export interface RegisterResponse {
     }
   }
 }
+
+export interface ApiResponse<T> {
+  status: number
+  message: string
+  payload: T
+}
+
+export interface CommentData {
+  _id: string
+  content: string
+  user: {
+    _id: string
+    username: string
+    email: string
+    location?: string
+    ip?: string
+    role: 'USER' | 'ADMIN'
+    createdAt: string
+    updatedAt: string
+    isDeleted: boolean
+    deletedAt?: string
+  }
+  animeId: string
+  animeSlug: string
+  createdAt: string
+  updatedAt: string
+}

@@ -1,7 +1,9 @@
 import http from '@/lib/http'
 import request from '@/lib/request'
 import type {
+  ApiResponse,
   CategoryData,
+  CommentData,
   LoginResponse,
   MovieData,
   MovieDetailData,
@@ -93,5 +95,28 @@ export const changePassword = async (
     oldPassword,
     confirmPassword,
   })
+  return res.data
+}
+
+export const createComment = async ({
+  content,
+  animeId,
+  animeSlug,
+}: {
+  content: string
+  animeId: string
+  animeSlug: string
+}) => {
+  console.log({ content, animeId, animeSlug })
+  const res = await request.post<ApiResponse<CommentData>>('/comment', {
+    content,
+    animeId,
+    animeSlug,
+  })
+  return res.data
+}
+
+export const getCommentByAnimeId = async ({ animeId }: { animeId: string }) => {
+  const res = await request.get<ApiResponse<CommentData[]>>(`/comment/${animeId}`)
   return res.data
 }

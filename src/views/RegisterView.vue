@@ -16,17 +16,23 @@ import { RouterLink, useRouter } from 'vue-router'
 import { register } from '@/services/api'
 import type { z } from 'zod'
 import { toast } from '@/components/ui/toast'
+import { ref } from 'vue'
+import { Loader2 } from 'lucide-vue-next'
 
 const router = useRouter()
+const isLoading = ref(false)
 
 const handleSubmit = async (e: z.infer<typeof registerSchema>) => {
   try {
+    isLoading.value = true
     const { email, password, confirmPassword } = e
     await register(email, password, confirmPassword)
     toast({ title: 'Đăng ký thành công', variant: 'success' })
     router.push({ name: 'login' })
   } catch (error: any) {
     toast({ title: error.response.data.message, variant: 'destructive' })
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -46,23 +52,31 @@ const handleSubmit = async (e: z.infer<typeof registerSchema>) => {
               label: 'Email',
               inputProps: {
                 placeholder: 'abc@gmail.com',
+                disabled: isLoading,
               },
             },
             password: {
               label: 'Mật khẩu',
               inputProps: {
                 type: 'password',
+                disabled: isLoading,
               },
             },
             confirmPassword: {
               label: 'Nhập Lại Mật Khẩu',
               inputProps: {
                 type: 'password',
+                disabled: isLoading,
               },
             },
           }"
         >
-          <Button type="submit" class="mt-4 w-full">Đăng Ký</Button>
+          <Button type="submit" class="mt-4 w-full">
+            <span v-if="!isLoading">Đăng Ký</span>
+            <span v-else>
+              <Loader2 class="size-4 animate-spin" />
+            </span>
+          </Button>
         </AutoForm>
       </CardContent>
       <Separator class="my-4" label="Hoặc" />

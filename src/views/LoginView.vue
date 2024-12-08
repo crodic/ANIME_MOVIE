@@ -15,14 +15,18 @@ import { toast } from '@/components/ui/toast'
 import { loginSchema } from '@/schema/auth.schema'
 import { login } from '@/services/api'
 import { useSessionStore } from '@/stores/session'
+import { Loader2 } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import type { z } from 'zod'
 
 const router = useRouter()
 const sessionStore = useSessionStore()
+const isLoading = ref(false)
 
 const handleSubmit = async (e: z.infer<typeof loginSchema>) => {
   try {
+    isLoading.value = true
     const { email, password } = e
     const res = await login(email, password)
     sessionStore.userLogin(res.payload)
@@ -30,6 +34,8 @@ const handleSubmit = async (e: z.infer<typeof loginSchema>) => {
     router.push({ name: 'home' })
   } catch (error: any) {
     toast({ title: error.response.data.message, variant: 'destructive' })
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -49,17 +55,24 @@ const handleSubmit = async (e: z.infer<typeof loginSchema>) => {
               label: 'Email',
               inputProps: {
                 placeholder: 'abc@gmail.com',
+                disabled: isLoading,
               },
             },
             password: {
               label: 'Mật khẩu',
               inputProps: {
                 type: 'password',
+                disabled: isLoading,
               },
             },
           }"
         >
-          <Button type="submit" class="mt-4 w-full">Đăng Nhập</Button>
+          <Button type="submit" class="mt-4 w-full" :disabled="isLoading">
+            <span v-if="!isLoading">Đăng Nhập</span>
+            <span v-else>
+              <Loader2 class="size-4 animate-spin" />
+            </span>
+          </Button>
         </AutoForm>
       </CardContent>
       <Separator class="my-4" label="Hoặc" />

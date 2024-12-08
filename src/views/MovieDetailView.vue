@@ -4,7 +4,7 @@ import LazyImage from '@/components/LazyImage.vue'
 import RelatedMovie from '@/components/RelatedMovie.vue'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { getMovieDetail } from '@/services/api'
+import { getCommentByAnimeId, getMovieDetail } from '@/services/api'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -13,6 +13,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { BookmarkIcon } from 'lucide-vue-next'
 import { useMovieBookmark } from '@/stores/movieBookmark'
 import { cn } from '@/lib/utils'
+import Comments from '@/components/Comments.vue'
+import CommentInput from '@/components/CommentInput.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -26,6 +28,12 @@ const { data, isError, error, isPending } = useQuery({
   queryKey: ['movie', slug],
   queryFn: () => getMovieDetail(slug.value.toString()),
   enabled: slug.value !== '',
+})
+
+const { data: comments } = useQuery({
+  queryKey: ['comments', data.value?.item._id.toString()],
+  queryFn: () => getCommentByAnimeId({ animeId: data.value?.item._id.toString() || '' }),
+  enabled: data.value?.item._id.toString() !== '',
 })
 
 useHead({
@@ -136,6 +144,16 @@ watchEffect(() => {
   <section>
     <Episodes v-if="data" :data="data" />
   </section>
+
+  <div class="space-y-2">
+    <Card class="rounded-none">
+      <CardHeader class="p-2 px-4">
+        <h4 class="text-lg font-semibold">Bình Luận</h4>
+      </CardHeader>
+    </Card>
+    <CommentInput v-if="data" :slug="slug.toString()" :anime-id="data.item._id" />
+    <Comments v-if="comments" :comments="comments?.payload" />
+  </div>
 
   <RelatedMovie v-if="data" :category="data.item.category" />
 </template>
