@@ -52,7 +52,7 @@ watch(
     <!-- Skeleton List -->
     <div v-if="isPending" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mt-4">
       <div v-for="i in 24" :key="i">
-        <Skeleton class="h-[204px] md:h-[254px]" />
+        <Skeleton class="h-[244px] md:h-[294px]" />
       </div>
     </div>
     <div v-else-if="error">

@@ -38,6 +38,7 @@ export const getSearchAnimeList = async (params: FilterDataType) => {
     arrayFormat: 'comma',
     filter: (key, value) => value || undefined,
   })
+  // await new Promise((resolve) => setTimeout(resolve, 30000))
   let res
   if (params.keyword) {
     res = await http.get<AxiosResponse<MovieData>>(
