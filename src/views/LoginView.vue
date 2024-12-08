@@ -25,7 +25,7 @@ const handleSubmit = async (e: z.infer<typeof loginSchema>) => {
     const { email, password } = e
     const res = await login(email, password)
     sessionStore.userLogin(res.payload)
-    toast({ title: res.message, variant: 'success' })
+    toast({ title: 'Đăng nhập thành công', variant: 'success' })
     router.push({ name: 'home' })
   } catch (error) {
     toast({ title: (error as Error).message, variant: 'destructive' })

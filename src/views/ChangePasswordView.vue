@@ -5,16 +5,23 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { toast } from '@/components/ui/toast'
 import { changePasswordSchema } from '@/schema/auth.schema'
 import { changePassword } from '@/services/api'
+import { useSessionStore } from '@/stores/session'
+import { useRouter } from 'vue-router'
 import type { z } from 'zod'
+
+const router = useRouter()
+const sessionStore = useSessionStore()
 
 const handleSubmit = async (e: z.infer<typeof changePasswordSchema>) => {
   const { newPassword, oldPassword, confirmPassword } = e
   try {
-    const res = await changePassword(newPassword, oldPassword, confirmPassword)
-    toast({ title: res.message, variant: 'success' })
+    await changePassword(newPassword, oldPassword, confirmPassword)
+    toast({ title: 'Đổi mật khẩu thành công. Vui lòng đăng nhập lại', variant: 'success' })
+    sessionStore.userLogout()
+    router.push({ name: 'login' })
   } catch (error) {
     toast({
-      title: (error as Error).message,
+      title: 'Lỗi!!!. Vui lòng kiểm tra lai mật khẩu',
       variant: 'destructive',
     })
   }
