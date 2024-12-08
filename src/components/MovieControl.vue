@@ -89,7 +89,7 @@ const handleDownloadVideo = async (url: string) => {
         <Button :disabled="!isHasPrev" @click="handleClickPrev" size="sm"
           ><ArrowLeft />Trước
         </Button>
-        <Button
+        <!-- <Button
           size="sm"
           :disabled="!sessionStore.isAuthenticated"
           @click="
@@ -99,7 +99,7 @@ const handleDownloadVideo = async (url: string) => {
           "
           ><DownloadIcon />
           <span class="sr-only">Tải xuống</span>
-        </Button>
+        </Button> -->
         <Button size="sm" @click="bookmarkStore.addBookmark(currentSlug.slice(0, -1).join('-'))">
           <Bookmark
             :fill="

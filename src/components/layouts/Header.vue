@@ -32,7 +32,7 @@ const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
         <BookmarkIcon />
         <span class="sr-only">Đánh dấu</span>
       </Button>
-      <Button
+      <!-- <Button
         size="icon"
         @click="router.push({ name: 'login' })"
         v-if="!sessionStore.isAuthenticated"
@@ -40,7 +40,7 @@ const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
         <LogInIcon />
         <span class="sr-only">Đăng nhập</span>
       </Button>
-      <UserDropdown v-else />
+      <UserDropdown v-else /> -->
       <CategoryDropdown />
       <ToggleMode />
     </div>

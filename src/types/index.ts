@@ -22,7 +22,7 @@ export interface MovieData {
     name: string
     slug: string
     origin_name: string
-    type: 'series'
+    type: string
     thumb_url: string
     poster_url: string
     sub_docquyen: boolean
