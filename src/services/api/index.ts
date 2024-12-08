@@ -84,13 +84,13 @@ export const validateRequest = async () => {
 }
 
 export const changePassword = async (
-  oldPassword: string,
   newPassword: string,
+  oldPassword: string,
   confirmPassword: string,
 ) => {
   const res = await request.put<{ message: string; status: number }>('/user/change-password', {
-    oldPassword,
     newPassword,
+    oldPassword,
     confirmPassword,
   })
   return res.data
