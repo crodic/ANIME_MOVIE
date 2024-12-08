@@ -67,6 +67,7 @@ const handleDownloadVideo = async (url: string) => {
   try {
     const isAuth = await validateRequest()
     if (isAuth.message === 'false') {
+      sessionStore.userLogout()
       router.push({ name: 'login' })
     } else {
       const link = document.createElement('a')
@@ -75,6 +76,7 @@ const handleDownloadVideo = async (url: string) => {
       link.click()
     }
   } catch (error) {
+    sessionStore.userLogout()
     router.push({ name: 'login' })
   }
 }
