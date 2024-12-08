@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ArrowLeft, ArrowRight, Bookmark } from 'lucide-vue-next'
+import { ArrowLeft, ArrowRight, Bookmark, DownloadIcon } from 'lucide-vue-next'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useMovieBookmark } from '@/stores/movieBookmark'
+import { useSessionStore } from '@/stores/session'
+import { validateRequest } from '@/services/api'
 
 interface Episode {
   name: string
@@ -58,6 +60,24 @@ const handleClickNext = () => {
     })
   }
 }
+
+const sessionStore = useSessionStore()
+
+const handleDownloadVideo = async (url: string) => {
+  try {
+    const isAuth = await validateRequest()
+    if (isAuth.message === 'false') {
+      router.push({ name: 'login' })
+    } else {
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `${currentSlug.value.join('-')}.mp4`
+      link.click()
+    }
+  } catch (error) {
+    router.push({ name: 'login' })
+  }
+}
 </script>
 
 <template>
@@ -67,12 +87,24 @@ const handleClickNext = () => {
         <Button :disabled="!isHasPrev" @click="handleClickPrev" size="sm"
           ><ArrowLeft />Trước
         </Button>
+        <Button
+          size="sm"
+          :disabled="!sessionStore.isAuthenticated"
+          @click="
+            handleDownloadVideo(
+              props.episodes.find((episode) => episode.slug === props.currentEpisode)!.link_embed,
+            )
+          "
+          ><DownloadIcon />
+          <span class="sr-only">Tải xuống</span>
+        </Button>
         <Button size="sm" @click="bookmarkStore.addBookmark(currentSlug.slice(0, -1).join('-'))">
           <Bookmark
             :fill="
               bookmarkStore.bookmarks.includes(currentSlug.slice(0, -1).join('-')) ? 'blue' : 'none'
             "
           />
+          <span class="sr-only">Đánh dấu</span>
         </Button>
         <Button :disabled="!isHasNext" @click="handleClickNext" size="sm"
           >Tiếp <ArrowRight

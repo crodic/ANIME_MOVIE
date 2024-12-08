@@ -1,5 +1,12 @@
 import http from '@/lib/http'
-import type { CategoryData, MovieData, MovieDetailData } from '@/types'
+import request from '@/lib/request'
+import type {
+  CategoryData,
+  LoginResponse,
+  MovieData,
+  MovieDetailData,
+  RegisterResponse,
+} from '@/types'
 import type { AxiosResponse } from 'axios'
 import QueryString from 'qs'
 
@@ -55,4 +62,23 @@ export const getSearchAnimeList = async (params: FilterDataType) => {
 export const getAnimeByBookmarks = async (bookmark: string) => {
   const res = await http.get<AxiosResponse<MovieDetailData>>(`/v1/api/phim/${bookmark}`)
   return res.data.data
+}
+
+export const login = async (email: string, password: string) => {
+  const res = await request.post<LoginResponse>('/auth/login', { email, password })
+  return res.data
+}
+
+export const register = async (email: string, password: string, confirmPassword: string) => {
+  const res = await request.post<RegisterResponse>('/auth/register', {
+    email,
+    password,
+    confirmPassword,
+  })
+  return res.data
+}
+
+export const validateRequest = async () => {
+  const res = await request.get<{ message: string }>('/auth/validate-request')
+  return res.data
 }

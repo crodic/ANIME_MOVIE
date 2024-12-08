@@ -148,3 +148,43 @@ export interface AnimeSearchData {
     slug: string
   }[]
 }
+
+export interface LoginResponse {
+  status: number
+  message: string
+  payload: {
+    user: {
+      _id: string
+      username: string
+      email: string
+      location?: string
+      ip?: string
+      role: 'USER' | 'ADMIN'
+      createdAt: string
+      updatedAt: string
+      isDeleted: boolean
+      deletedAt?: string
+    }
+    accessToken: string
+    refreshToken: string
+  }
+}
+
+export interface RegisterResponse {
+  status: number
+  message: string
+  payload: {
+    user: {
+      _id: string
+      username: string
+      email: string
+      location?: string
+      ip?: string
+      role: 'USER' | 'ADMIN'
+      createdAt: string
+      updatedAt: string
+      isDeleted: boolean
+      deletedAt?: string
+    }
+  }
+}

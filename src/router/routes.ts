@@ -12,6 +12,16 @@ export const routes: readonly RouteRecordRaw[] = [
         component: () => import('@/views/HomeView.vue'),
       },
       {
+        path: 'dang-nhap',
+        name: 'login',
+        component: () => import('@/views/LoginView.vue'),
+      },
+      {
+        path: 'dang-ky',
+        name: 'register',
+        component: () => import('@/views/RegisterView.vue'),
+      },
+      {
         path: 'tim-kiem',
         name: 'search',
         component: () => import('@/views/SearchView.vue'),
