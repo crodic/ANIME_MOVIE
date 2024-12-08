@@ -20,7 +20,7 @@ const handleClick = ({ slug }: { slug: string }) => {
     @click="handleClick({ slug: data.slug })"
     v-if="data"
   >
-    <CardHeader class="p-0 h-[200px] md:h-[250px] relative">
+    <CardHeader class="p-0 w-full aspect-auto relative">
       <LazyImage
         :src="imgUrl + '/' + data?.thumb_url"
         :alt="data.origin_name"
