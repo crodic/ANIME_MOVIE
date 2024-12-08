@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
 import { AutoForm } from '@/components/ui/auto-form'
 import { Button } from '@/components/ui/button'
@@ -21,11 +22,11 @@ const router = useRouter()
 const handleSubmit = async (e: z.infer<typeof registerSchema>) => {
   try {
     const { email, password, confirmPassword } = e
-    const res = await register(email, password, confirmPassword)
+    await register(email, password, confirmPassword)
     toast({ title: 'Đăng ký thành công', variant: 'success' })
     router.push({ name: 'login' })
-  } catch (error) {
-    toast({ title: (error as Error).message, variant: 'destructive' })
+  } catch (error: any) {
+    toast({ title: error.response.data.message, variant: 'destructive' })
   }
 }
 </script>
