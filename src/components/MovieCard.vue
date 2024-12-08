@@ -16,11 +16,11 @@ const handleClick = ({ slug }: { slug: string }) => {
 </script>
 <template>
   <Card
-    class="rounded-none border-4 cursor-pointer hover:opacity-80"
+    class="rounded-none border-4 cursor-pointer hover:opacity-80 aspect-auto"
     @click="handleClick({ slug: data.slug })"
     v-if="data"
   >
-    <CardHeader class="p-0 w-full aspect-auto relative">
+    <CardHeader class="p-0 h-[300px] md:h-[250px] relative">
       <LazyImage
         :src="imgUrl + '/' + data?.thumb_url"
         :alt="data.origin_name"
