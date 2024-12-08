@@ -11,9 +11,9 @@ const searchValue = ref('')
 
 const handleEnter = () => {
   if (searchValue.value) {
-    router.push({ name: 'search', query: { ...route.query, q: searchValue.value } })
+    router.push({ name: 'search', query: { ...route.query, q: searchValue.value, page: '1' } })
   } else {
-    router.push({ name: 'search', query: { ...route.query, q: '' } })
+    router.push({ name: 'search', query: { ...route.query, q: '', page: '1' } })
   }
 }
 </script>
