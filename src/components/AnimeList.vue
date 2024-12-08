@@ -43,7 +43,7 @@ watch(
       <p class="text-red-500">Không tìm thấy anime.</p>
     </div>
   </section>
-  <section v-else class="md:px-0 px-4 min-h-screen">
+  <section v-else class="min-h-screen">
     <Card class="rounded-none">
       <CardHeader class="p-2 px-4">
         <h4 class="text-base font-semibold">Danh sách Anime</h4>

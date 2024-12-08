@@ -5,8 +5,10 @@ import { Button } from './ui/button'
 import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { createComment } from '@/services/api'
 import { toast } from './ui/toast'
+import { useSessionStore } from '@/stores/session'
 
 const props = defineProps<{ slug: string; animeId: string }>()
+const sessionStore = useSessionStore()
 
 const commentValue = ref('')
 const queryClient = useQueryClient()
@@ -38,7 +40,7 @@ const handleCreateComment = () => {
 </script>
 
 <template>
-  <div class="space-y-2">
+  <div class="space-y-2" v-if="sessionStore.isAuthenticated">
     <Textarea placeholder="Cảm nghĩ của bạn." v-model="commentValue" />
     <Button @click="handleCreateComment">Bình Luận</Button>
   </div>

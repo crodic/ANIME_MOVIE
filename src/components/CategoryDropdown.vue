@@ -27,7 +27,7 @@ const { data } = useQuery({
         <span class="sr-only">Danh sách thể loại</span>
       </Button>
     </DropdownMenuTrigger>
-    <DropdownMenuContent align="end" class="w-full max-w-4xl p-4">
+    <DropdownMenuContent align="end" class="w-full max-w-screen-sm p-4">
       <div class="grid grid-cols-3 md:grid-cols-5 gap-4 w-full">
         <RouterLink
           :to="{ name: 'search', query: { category: category.slug } }"

@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <main class="w-full max-w-5xl mx-auto flex flex-col gap-4">
+  <main class="w-full max-w-5xl mx-auto flex flex-col gap-4 px-2">
     <Header></Header>
     <RouterView />
     <Toaster />

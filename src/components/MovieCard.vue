@@ -16,17 +16,17 @@ const handleClick = ({ slug }: { slug: string }) => {
 </script>
 <template>
   <Card
-    class="rounded-none border-4 cursor-pointer hover:opacity-80 aspect-auto"
+    class="rounded-none border-4 cursor-pointer hover:opacity-80 flex flex-col h-full"
     @click="handleClick({ slug: data.slug })"
     v-if="data"
   >
-    <CardHeader class="p-0 h-[300px] md:h-[250px] relative">
+    <CardHeader class="p-0 relative aspect-auto h-auto flex-1">
       <LazyImage
         :src="imgUrl + '/' + data?.thumb_url"
         :alt="data.origin_name"
         :width="1071"
         :height="1500"
-        class="h-full object-top"
+        class="h-full w-full object-top"
       />
       <div
         class="absolute bottom-2 right-2 bg-destructive text-destructive-foreground text-sm px-2"

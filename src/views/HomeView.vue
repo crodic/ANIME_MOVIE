@@ -20,7 +20,7 @@ useSeoMeta({
 
 <template>
   <div class="flex flex-col gap-4">
-    <section aria-label="Alerts" class="space-y-2 px-4 md:px-0">
+    <section aria-label="Alerts" class="space-y-2">
       <Alert
         variant="destructive"
         class="bg-destructive text-destructive-foreground py-2 flex items-center"

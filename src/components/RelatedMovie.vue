@@ -18,7 +18,7 @@ const { data } = useQuery({
 })
 </script>
 <template>
-  <section class="md:px-0 px-4">
+  <section>
     <Card class="rounded-none">
       <CardHeader class="p-2 px-4">
         <RouterLink

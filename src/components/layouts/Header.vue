@@ -19,14 +19,16 @@ const router = useRouter()
 const isMobileSearchOpen = computed(() => store.isShowMobileSearch)
 </script>
 <template>
-  <header class="flex justify-between items-center border-b px-4 py-2 h-[80px]">
-    <p :class="cn(isMobileSearchOpen && 'flex-1')">
+  <header
+    class="flex justify-between gap-2 md:gap-0 items-center flex-wrap md:flex-nowrap border-b p-2 min-h-[80px]"
+  >
+    <p :class="cn('text-center md:text-start w-full', isMobileSearchOpen && 'flex-1')">
       <RouterLink to="/" class="dancing-script-700 text-blue-500" v-if="!isMobileSearchOpen"
         >Animazing</RouterLink
       >
     </p>
     <SearchInput />
-    <div class="flex gap-2 items-center">
+    <div class="flex gap-2 items-center justify-center md:justify-end float-right w-full">
       <MobileSearch />
       <Button size="icon" @click="router.push({ name: 'bookmark' })">
         <BookmarkIcon />

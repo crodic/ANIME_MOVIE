@@ -58,7 +58,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <section class="px-4 md:px-0">
+  <section>
     <div class="flex gap-4 flex-wrap">
       <Button @click="handleOpenFilterCategory" class="flex items-center">
         <ListFilter /> Lọc Theo Thể Loại

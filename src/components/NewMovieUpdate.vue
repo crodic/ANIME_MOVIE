@@ -12,7 +12,7 @@ const { data } = useQuery({
 </script>
 
 <template>
-  <section class="md:px-0 px-4">
+  <section>
     <Card class="rounded-none">
       <CardHeader class="p-2 px-4">
         <h4 class="text-base font-semibold">Anime mới cập nhật</h4>
@@ -42,7 +42,7 @@ const { data } = useQuery({
         <RouterLink
           :to="{ name: 'movie-detail', params: { slug: `${movie.slug}` } }"
           :class="
-            cn('hover:text-blue-500 flex items-center justify-between', {
+            cn('hover:text-blue-500 flex items-center justify-between gap-4', {
               'opacity-50': !movie,
             })
           "
@@ -50,7 +50,7 @@ const { data } = useQuery({
           <span>
             {{ movie.name }}
           </span>
-          <span>
+          <span class="min-w-[100px] text-end">
             {{ movie.episode_current }}
           </span>
         </RouterLink>

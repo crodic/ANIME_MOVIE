@@ -7,8 +7,8 @@ defineProps<{ data: CommentData }>()
 </script>
 
 <template>
-  <Card>
-    <CardContent class="pt-6 flex gap-6">
+  <Card class="p-2">
+    <CardContent class="p-2 flex gap-6">
       <div class="flex-shrink-1">
         <Avatar>
           <AvatarImage src="https://github.com/radix-vue.png" alt="@anime" />
@@ -18,7 +18,7 @@ defineProps<{ data: CommentData }>()
       <div class="flex-1">
         <p class="text-base text-muted-foreground pb-2">{{ data.user.username }}</p>
         <hr />
-        <p>
+        <p class="pt-2">
           {{ data.content }}
         </p>
       </div>

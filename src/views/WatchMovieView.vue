@@ -95,7 +95,7 @@ watchEffect(() => {
       </h1>
     </CardHeader>
   </Card>
-  <div class="px-4 md:px-0">
+  <div>
     <Button
       :variant="server.server_name === serverName ? 'default' : 'outline'"
       v-for="server in data?.item.episodes"
@@ -113,7 +113,7 @@ watchEffect(() => {
     name="anime-screen"
     aria-label="anime-screen"
     title="anime-screen"
-    class="w-full aspect-video px-4 md:px-0"
+    class="w-full aspect-video"
   ></iframe>
 
   <MovieControl
